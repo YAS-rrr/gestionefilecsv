@@ -13,23 +13,30 @@ public class main {
             br = new BufferedReader(new FileReader(nomeFile));
             while ((linea = br.readLine()) != null) {
 
-                if (linea.startsWith("nome_colonna1,nome_colonna2")) {
+                if (linea.startsWith("Draw Date, Winning Numbers , Mega ball, Multiplier")) {
                     continue;
                 }
 
                 String[] campi = linea.split(separatore);
 
-                System.out.println("Campo 1: " + campi[0] + ", Campo 2: " + campi[1]);
+                System.out.println("Campo 1: " + campi[0] + ", Campo 2: " + campi[1] + ", Campo 3: " + campi[2] + ", Campo 4: " + campi[3]);
 
             }
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
+        }
+        finally {
+
             try {
-                if (br != null) {
+
+                if (br != null)
+                {
                     br.close();
                 }
-            } catch (IOException e) {
+            }
+
+            catch (IOException e)
+            {
                 e.printStackTrace();
             }
         }
