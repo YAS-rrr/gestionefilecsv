@@ -2,9 +2,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class LeggiCSV {
+public class main {
     public static void main(String[] args) {
-        String nomeFile = "C:\\Users\\ouldib.21029\\Downloads\\Lottery_Mega_Millions_Winning_Numbers__Beginning_2002 (1).csv\";
+        String nomeFile = "C://Users//ouldib.21029//Downloads//ouldib.csv/";
         String linea;
         String separatore = ",";
         BufferedReader br = null;
@@ -13,7 +13,7 @@ public class LeggiCSV {
             br = new BufferedReader(new FileReader(nomeFile));
             while ((linea = br.readLine()) != null) {
 
-                if (linea.startsWith("nome_colonna1,nome_colonna2")) { // Esempio di salto intestazione
+                if (linea.startsWith("nome_colonna1,nome_colonna2")) {
                     continue;
                 }
 
