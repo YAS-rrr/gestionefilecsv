@@ -8,6 +8,7 @@ public class main {
         String linea;
         String separatore = ",";
         BufferedReader br = null;
+        int numerocampi = 0;
 
         try {
             br = new BufferedReader(new FileReader(nomeFile));
