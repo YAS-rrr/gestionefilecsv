@@ -1,11 +1,11 @@
-// File: GestoreRecord.java
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class gestore {
-    private Record[] records;
-    private int numRecords;
+    private static Record[] records;
+    private static int numRecords;
     private int[] lunghezzeMaxCampi;
     
     public gestore(int maxRecords) {
@@ -47,7 +47,7 @@ public class gestore {
         }
     }
     
-    public Record cercaRecord(String drawDate) {
+    public static Record cercaRecord(String drawDate) {
         for (int i = 0; i < numRecords; i++) {
             if (!records[i].isCancellatoLogicamente() && 
                 records[i].getDrawDate().equals(drawDate)) {
@@ -105,5 +105,5 @@ public class gestore {
     }
     
     public Record[] getRecords() { return records; }
-    public int getNumRecords() { return numRecords; }
+    public static int getNumRecords() { return numRecords; }
 }

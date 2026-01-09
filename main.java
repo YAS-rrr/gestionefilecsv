@@ -1,17 +1,15 @@
-// File: Main.java
-public class Main {
+import java.io.IOException;
+
+public class main {
     public static void main(String[] args) {
         try {
             
-            gestore Gestore = new GestoreRecord(1000);
+            gestore Gestore = new gestore(5000);
             
            
-            Gestore.caricaDaFile("C://Users//ouldib.21029//Downloads//ouldib.csv/");
+            Gestore.caricaDaFile("ouldib.csv");
             
-           
-            
-            
-           
+              
             Record nuovoRecord = new Record("2024-01-15", "10 20 30 40 50", "15", "3X");
             Gestore.aggiungiRecord(nuovoRecord);
            
@@ -41,7 +39,7 @@ public class Main {
             System.out.println("Record cancellato logicamente");
             
            
-            Record dopoCancellazione = Gestore.cercaRecord("2024-01-15");
+            Record dopoCancellazione = gestore.cercaRecord("2024-01-15");
             if (dopoCancellazione == null || dopoCancellazione.isCancellatoLogicamente()) {
                 System.out.println("Conferma: record risulta cancellato");
             }
@@ -50,11 +48,13 @@ public class Main {
             Gestore.stampaStatistiche();
             
             
-            if (gestore.getNumRecords() > 0) {
-                System.out.println("\n=== CONTEggio CAMPI ===");
-                int campi = Gestore.getRecords()[0].contaCampi();
-                System.out.println("Il primo record ha " + campi + " campi");
-            }
+         
+                if (gestore.getNumRecords() > 0) {
+                    System.out.println("\n=== CONTEggio CAMPI ===");
+                    int campi = Gestore.getRecords()[0].contaCampi();
+                    System.out.println("Il primo record ha " + campi + " campi");
+                }
+           
             
         } catch (IOException e) {
             e.printStackTrace();

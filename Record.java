@@ -19,19 +19,51 @@ public class Record {
         return 10 + (int)(Math.random() * 11); // 10-20
     }
     
-    // Getter e Setter
-    public String getDrawDate() { return drawDate; }
-    public String getWinningNumbers() { return winningNumbers; }
-    public String getMegaBall() { return megaBall; }
-    public String getMultiplier() { return multiplier; }
-    public int getMiovalore() { return miovalore; }
-    public boolean isCancellatoLogicamente() { return cancellatoLogicamente; }
     
-    public void setWinningNumbers(String winningNumbers) { this.winningNumbers = winningNumbers; }
-    public void setMegaBall(String megaBall) { this.megaBall = megaBall; }
-    public void setMultiplier(String multiplier) { this.multiplier = multiplier; }
-    public void setMiovalore(int miovalore) { this.miovalore = miovalore; }
-    public void cancellaLogicamente() { this.cancellatoLogicamente = true; }
+    public String getDrawDate()  { 
+        return drawDate; 
+    }
+
+    public String getWinningNumbers() { 
+        return winningNumbers; 
+        }
+
+    public String getMegaBall() { 
+        return megaBall; 
+        }
+
+    public String getMultiplier() { 
+        return multiplier; 
+        }
+
+    public int getMiovalore() { 
+        return miovalore; 
+        }
+
+    public boolean isCancellatoLogicamente() { 
+        return cancellatoLogicamente; 
+        }
+    
+    public void setWinningNumbers(String winningNumbers) { 
+        this.winningNumbers = winningNumbers;
+         }
+
+    public void setMegaBall(String megaBall) { 
+        this.megaBall = megaBall;
+         }
+
+    public void setMultiplier(String multiplier) { 
+        this.multiplier = multiplier;
+   }
+
+    public void setMiovalore(int miovalore) { 
+        this.miovalore = miovalore; 
+       
+ }
+
+    public void cancellaLogicamente() { 
+        this.cancellatoLogicamente = true
+        ; }
     
     public int contaCampi() {
         return 6; // 4 campi originali + miovalore + flag cancellazione
