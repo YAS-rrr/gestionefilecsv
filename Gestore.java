@@ -33,9 +33,9 @@ public class Gestore {
         }
     }
 
-    /* ================= FUNZIONALITÀ ================= */
 
-    // 1️⃣ Aggiunge miovalore e campo cancellazione
+
+
     public void aggiungiCampiExtra() {
         Random rnd = new Random();
         intestazione = Arrays.copyOf(intestazione, intestazione.length + 2);
@@ -49,12 +49,12 @@ public class Gestore {
         }
     }
 
-    // 2️⃣ Conta campi
+
     public int contaCampi() {
         return intestazione.length;
     }
 
-    // 3️⃣ Lunghezza massima record e campi
+
     public void lunghezzeMassime() {
         int maxRecord = 0;
         int[] maxCampi = new int[intestazione.length - 1];
@@ -72,7 +72,7 @@ public class Gestore {
         }
     }
 
-    // 4️⃣ Rende i record a lunghezza fissa
+
     public void normalizzaCampi() {
         int[] max = new int[intestazione.length - 1];
 
@@ -89,7 +89,7 @@ public class Gestore {
         }
     }
 
-    // 5️⃣ Aggiunge record in coda
+
     public void aggiungiRecord(String[] campi) {
         records.add(new Record(campi, false));
     }
@@ -107,7 +107,7 @@ public class Gestore {
         }
     }
 
-    // 7️⃣ Ricerca per chiave
+
     public Record cerca(int index, String valore) {
         for (Record r : records) {
             if (!r.isCancellato() && r.getCampo(index).equals(valore)) {
@@ -117,12 +117,12 @@ public class Gestore {
         return null;
     }
 
-    // 8️⃣ Modifica record
+
     public void modifica(Record r, int campo, String nuovoValore) {
         r.setCampo(campo, nuovoValore);
     }
 
-    // 9️⃣ Cancellazione logica
+
     public void cancella(Record r) {
         r.cancella();
     }
