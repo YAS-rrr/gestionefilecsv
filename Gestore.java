@@ -94,7 +94,7 @@ public class Gestore {
         records.add(new Record(campi, false));
     }
 
-    // 6️⃣ Visualizza 3 campi
+
     public void visualizza(int a, int b, int c) {
         for (Record r : records) {
             if (!r.isCancellato()) {
