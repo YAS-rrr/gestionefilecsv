@@ -1,45 +1,63 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
-public class main {
+// File: Main.java
+public class Main {
     public static void main(String[] args) {
-        String nomeFile = "C://Users//ouldib.21029//Downloads//ouldib.csv/";
-        String linea;
-        String separatore = ",";
-        BufferedReader br = null;
-        int numerocampi = 0;
-
         try {
-            br = new BufferedReader(new FileReader(nomeFile));
-            while ((linea = br.readLine()) != null) {
-
-                if (linea.startsWith("Draw Date, Winning Numbers , Mega ball, Multiplier")) {
-                    continue;
-                }
-
-                String[] campi = linea.split(separatore);
-
-                System.out.println("Campo 1: " + campi[0] + ", Campo 2: " + campi[1] + ", Campo 3: " + campi[2] + ", Campo 4: " + campi[3]);
-
+            
+            gestore Gestore = new GestoreRecord(1000);
+            
+           
+            Gestore.caricaDaFile("C://Users//ouldib.21029//Downloads//ouldib.csv/");
+            
+           
+            
+            
+           
+            Record nuovoRecord = new Record("2024-01-15", "10 20 30 40 50", "15", "3X");
+            Gestore.aggiungiRecord(nuovoRecord);
+           
+            
+          
+            Gestore.visualizzaTreCampiPerTutti();
+            
+          
+            
+            Record cercato = Gestore.cercaRecord("2024-01-15");
+            if (cercato != null) {
+                System.out.println("TROVATO: " + cercato);
+            } else {
+                System.out.println("Record non trovato!");
             }
+            
+            
+            if (cercato != null) {
+                System.out.println("\n=== MODIFICA RECORD ===");
+                Gestore.modificaRecord("2024-01-15", "11 22 33 44 55", "25", "2X");
+                System.out.println("Record modificato: " + gestore.cercaRecord("2024-01-15"));
+            }
+            
+          
+           
+            Gestore.cancellaLogicamente("2024-01-15");
+            System.out.println("Record cancellato logicamente");
+            
+           
+            Record dopoCancellazione = Gestore.cercaRecord("2024-01-15");
+            if (dopoCancellazione == null || dopoCancellazione.isCancellatoLogicamente()) {
+                System.out.println("Conferma: record risulta cancellato");
+            }
+            
+           
+            Gestore.stampaStatistiche();
+            
+            
+            if (gestore.getNumRecords() > 0) {
+                System.out.println("\n=== CONTEggio CAMPI ===");
+                int campi = Gestore.getRecords()[0].contaCampi();
+                System.out.println("Il primo record ha " + campi + " campi");
+            }
+            
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally {
-
-            try {
-
-                if (br != null)
-                {
-                    br.close();
-                }
-            }
-
-            catch (IOException e)
-            {
-                e.printStackTrace();
-            }
         }
     }
 }
