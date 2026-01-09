@@ -35,14 +35,14 @@ public class main {
             
           
            
-            Gestore.cancellaLogicamente("2024-01-15");
-            System.out.println("Record cancellato logicamente");
+           // Gestore.cancellaLogicamente("2024-01-15");
+            //System.out.println("Record cancellato logicamente");
             
            
-            Record dopoCancellazione = gestore.cercaRecord("2024-01-15");
-            if (dopoCancellazione == null || dopoCancellazione.isCancellatoLogicamente()) {
-                System.out.println("Conferma: record risulta cancellato");
-            }
+           // Record dopoCancellazione = gestore.cercaRecord("2024-01-15");
+          //  if (dopoCancellazione == null || dopoCancellazione.isCancellatoLogicamente()) {
+           //     System.out.println("Conferma: record risulta cancellato");
+           // }
             
            
             Gestore.stampaStatistiche();
