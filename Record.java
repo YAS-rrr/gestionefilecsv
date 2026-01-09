@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Record {
     private String[] campi;
     private boolean cancellato;
@@ -21,8 +19,10 @@ public class Record {
         return campi.length;
     }
 
-    public String[] getCampi() {
-        return campi;
+    public int lunghezzaRecord() {
+        int tot = 0;
+        for (String c : campi) tot += c.length();
+        return tot;
     }
 
     public boolean isCancellato() {
@@ -33,11 +33,21 @@ public class Record {
         cancellato = true;
     }
 
-    public int lunghezzaRecord() {
-        return Arrays.stream(campi).mapToInt(String::length).sum();
+    public String[] getCampi() {
+        return campi;
     }
 
     public String toCSV() {
-        return String.join(",", campi) + "," + cancellato;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < campi.length; i++) {
+            sb.append(campi[i]);
+            if (i < campi.length - 1) {
+                sb.append(",");
+            }
+        }
+        return sb.toString();
     }
+
+
+
 }
